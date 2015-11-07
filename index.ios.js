@@ -5,27 +5,34 @@
 'use strict';
 
 var React = require('react-native');
+var Button = require('react-native-button');
+var AudioManager = require('NativeModules').AudioManager;
+
 var {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
+  View
 } = React;
 
 var sccios = React.createClass({
+  playClicked: function() {
+    AudioManager.play();
+  },
+  stopClicked: function() {
+    AudioManager.stop();
+  },
   render: function() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+        <Text style={styles.title}>
+          Salut cest cool Radio
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+          salutcestcool.com
+      </Text>
+        <Button style={styles.button} onPress={this.playClicked}>Play</Button>
+        <Button style={styles.button} onPress={this.stopClicked}>Stop</Button>
       </View>
     );
   }
@@ -36,18 +43,25 @@ var styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
-  welcome: {
+  button: {
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5
+  },
+  title: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });
 
 AppRegistry.registerComponent('sccios', () => sccios);

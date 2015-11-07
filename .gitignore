@@ -32,3 +32,12 @@ local.properties
 #
 node_modules/
 npm-debug.log
+
+.Trashes
+*.swp
+*.lock
+*~.nib
+DerivedData/
+build/
+xcuserdata/
+*.xcworkspace/
